@@ -1,18 +1,15 @@
 package backtracking
 
 func Exist(board [][]byte, word string) bool {
-
 	if len(board) == 0 || len(board[0]) == 0 {
 		return false
 	}
-
 	rows := len(board)
 	cols := len(board[0])
 	visited := make([][]bool, rows)
 	for i := range visited {
 		visited[i] = make([]bool, cols)
 	}
-
 	for i := range rows {
 		for j := range cols {
 			if board[i][j] == word[0] && search(i, j, 0, word, board, visited) {
@@ -20,14 +17,12 @@ func Exist(board [][]byte, word string) bool {
 			}
 		}
 	}
-
 	return false
 }
 
 func search(r, c, index int, word string, board [][]byte, visited [][]bool) bool {
 	rows := len(board)
 	cols := len(board[0])
-
 	if index == len(word) {
 		return true
 	}
