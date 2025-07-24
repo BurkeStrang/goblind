@@ -19,10 +19,3 @@ func getMaxRobAmount(node *TreeNode) int {
 
 	return max(rob, getMaxRobAmount(node.Left)+getMaxRobAmount(node.Right))
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}

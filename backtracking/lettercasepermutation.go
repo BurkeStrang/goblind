@@ -1,51 +1,34 @@
 package backtracking
 
-import "unicode"
-
-// alias for unicode
-var IsLetter = unicode.IsLetter
-
-// alias for unicode
-var ToUpper = unicode.ToUpper
-
-// alias for unicode
-var ToLower = unicode.ToLower
-
 // Find all the combinations of a string given that each character can be uppercase or lowercase
 // Example:
 // input: s = "Ad2"
 // output: ["Ad2","ad2","aD2","AD2"]
+
+// LetterCasePermutation returns all combinations of the input string.
+// with each letter toggled between lowercase and uppercase.
 func LetterCasePermutation(s string) []string {
-	res := []string{}
-	backtrack([]rune(s), 0, &res)
-	return res
+	var results []string
+	runes := []rune(s)
+	backtrack(runes, 0, &results)
+	return results
 }
 
-func backtrack(chars []rune, index int, res *[]string) {
-	if index == len(chars) {
-		*res = append(*res, string(chars))
+// backtrack recursively generates case permutations starting from index.
+func backtrack(runes []rune, index int, results *[]string) {
+	if index == len(runes) {
+		*results = append(*results, string(runes))
 		return
 	}
 
-	backtrack(chars, index+1, res)
+	// Continue without changing current character
+	backtrack(runes, index+1, results)
 
-	if IsLetter(chars[index]) {
-		chars[index] = toggleCase(chars[index])
-		backtrack(chars, index+1, res)
-		chars[index] = toggleCase(chars[index]) // revert case
+	// If it's a letter, toggle its case and continue
+	if IsLetter(runes[index]) {
+		runes[index] = toggleCase(runes[index])
+		backtrack(runes, index+1, results)
+		// Revert back to original case after recursion
+		runes[index] = toggleCase(runes[index])
 	}
-}
-
-func toggleCase(c rune) rune {
-	if unicode.IsUpper(c) {
-		return unicode.ToLower(c)
-	}
-	return unicode.ToUpper(c)
-	// if c >= 'a' && c <= 'z' {
-	// 	return c - 32
-	// }
-	// if c >= 'A' && c <= 'Z' {
-	// 	return c + 32
-	// }
-	// return c
 }
