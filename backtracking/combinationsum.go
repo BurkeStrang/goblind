@@ -20,23 +20,23 @@ package backtracking
 
 func CombinationSum(candidates []int, target int) [][]int {
 	var ans [][]int
-	var backtrack func(path []int, start int, curr int)
-	backtrack = func(path []int, start int, curr int) {
-		if curr == target {
-			temp := make([]int, len(path))
-			copy(temp, path)
-			ans = append(ans, temp)
-			return
-		}
-		for i := start; i < len(candidates); i++ {
-			num := candidates[i]
-			if curr+num <= target {
-				path = append(path, num)
-				backtrack(path, i, curr+num)
-				path = path[:len(path)-1]
-			}
+	backtrackcs(candidates, target, []int{}, 0, 0, &ans)
+	return ans
+}
+
+func backtrackcs(candidates []int, target int, path []int, start int, curr int, ans *[][]int) {
+	if curr == target {
+		temp := make([]int, len(path))
+		copy(temp, path)
+		*ans = append(*ans, temp)
+		return
+	}
+	for i := start; i < len(candidates); i++ {
+		num := candidates[i]
+		if curr+num <= target {
+			path = append(path, num)
+			backtrackcs(candidates, target, path, i, curr+num, ans)
+			path = path[:len(path)-1]
 		}
 	}
-	backtrack([]int{}, 0, 0)
-	return ans
 }
