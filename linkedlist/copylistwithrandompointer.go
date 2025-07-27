@@ -64,7 +64,6 @@ func CopyListWithRandomPointer(head *ListNode) *ListNode {
 		if curr.random != nil {
 			curr.next.random = curr.random.next
 		}
-
 		curr = curr.next.next
 	}
 
