@@ -34,32 +34,32 @@ Can you solve the problem in linear runtime complexity?
 */
 
 func FindDuplicate(nums []int) int {
-	return floydAlgorithm(nums)
-	// return arrayAsHashMapIterative(nums)
+	// return floydAlgorithm(nums)
+	return arrayAsHashMapIterative(nums)
 }
 
-func floydAlgorithm(nums []int) int {
-	slow := 0
-	fast := 0
-
-	// Detect cycle
-	for {
-		slow = nums[slow]
-		fast = nums[nums[fast]]
-		if slow == fast {
-			break
-		}
-	}
-
-	slow2 := 0
-	for {
-		slow = nums[slow]
-		slow2 = nums[slow2]
-		if slow == slow2 {
-			return slow
-		}
-	}
-}
+// func floydAlgorithm(nums []int) int {
+// 	slow := 0
+// 	fast := 0
+//
+// 	// Detect cycle
+// 	for {
+// 		slow = nums[slow]
+// 		fast = nums[nums[fast]]
+// 		if slow == fast {
+// 			break
+// 		}
+// 	}
+//
+// 	slow2 := 0
+// 	for {
+// 		slow = nums[slow]
+// 		slow2 = nums[slow2]
+// 		if slow == slow2 {
+// 			return slow
+// 		}
+// 	}
+// }
 
 func arrayAsHashMapIterative(nums []int) int {
 	for nums[0] != nums[nums[0]] {
