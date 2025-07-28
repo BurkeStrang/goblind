@@ -29,8 +29,8 @@ The number of nodes in each linked list is in the range [1, 100].
 It is guaranteed that the list represents a number that does not have leading zeros.
 */
 func AddTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
-	PrintList(l1, "l1")
-	PrintList(l2, "l2")
+	// PrintList(l1, "l1")
+	// PrintList(l2, "l2")
 	dummy := &ListNode{}
 	curr := dummy
 	carry := 0
@@ -49,8 +49,8 @@ func AddTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 		carry = sum / 10
 		val := sum % 10
 
-		println("num1:", num1, "num2:", num2)
-		println("sum:", sum, "carry:", carry, "val:", val)
+		// println("num1:", num1, "num2:", num2)
+		// println("sum:", sum, "carry:", carry, "val:", val)
 
 		curr.next = &ListNode{val: val}
 		curr = curr.next
