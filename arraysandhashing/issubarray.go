@@ -1,4 +1,4 @@
-package arraysandhasing
+package arraysandhashing
 
 func IsSubArray(main []int, sub []int) bool {
 	if len(sub) == 0 {

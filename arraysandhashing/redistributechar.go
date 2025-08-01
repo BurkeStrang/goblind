@@ -1,4 +1,4 @@
-package arraysandhasing
+package arraysandhashing
 
 // You are given an array of strings words (0-indexed).
 // In one operation, pick two distinct indices i and j, where words[i] is a non-empty string,

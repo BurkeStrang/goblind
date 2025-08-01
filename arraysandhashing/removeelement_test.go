@@ -1,4 +1,4 @@
-package arraysandhasing
+package arraysandhashing
 
 import (
 	"reflect"

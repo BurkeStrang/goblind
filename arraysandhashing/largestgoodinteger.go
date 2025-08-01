@@ -1,4 +1,4 @@
-package arraysandhasing
+package arraysandhashing
 
 // You are given a string num representing a large integer. An integer is good if it meets the following conditions:
 // It is a substring of num with length 3.
