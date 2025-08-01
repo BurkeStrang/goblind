@@ -33,6 +33,9 @@ func LargestGoodInteger(num string) string {
 	for i := 0; i <= len(num)-3; i++ {
 		if num[i] == num[i+1] && num[i+1] == num[i+2] {
 			sub := num[i : i+3]
+			// we can do this because good numbers
+			// are ordered the same as strings
+			// since they are all the same length
 			if sub > maxGood {
 				maxGood = sub
 			}
