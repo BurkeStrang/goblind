@@ -45,7 +45,7 @@ package arraysandhasing
 // 0 <= val <= 100
 
 func RemoveElement(nums []int, val int) int {
-	var count = 0
+	count := 0
 	for _, item := range nums {
 		if item != val {
 			nums[count] = item
