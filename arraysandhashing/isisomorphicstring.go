@@ -30,8 +30,9 @@ func IsIsomorphic(s string, t string) bool {
 	sToT := make(map[rune]rune)
 	tToS := make(map[rune]rune)
 
-	for i, sChar := range s {
+	for i := range len(s) {
 		tChar := rune(t[i])
+		sChar := rune(s[i])
 
 		// Check sToT mapping
 		if existingT, exists := sToT[sChar]; exists {
